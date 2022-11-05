@@ -124,9 +124,9 @@ def plot_res_kmeans(file, k_min, k_max) :
     f1 = [f[1] for f in data]
     
     # Clustering K-Means
-    [k_sil, time_sil] = cluster_kmeans(data, 2, 20, "silhouette")
-    [k_davies, time_davies] = cluster_kmeans(data, 2, 20, "davies")
-    [k_calinski, time_calinski] = cluster_kmeans(data, 2, 20, "calinski")
+    [k_sil, time_sil] = cluster_kmeans(data, k_min, k_max, "silhouette")
+    [k_davies, time_davies] = cluster_kmeans(data, k_min, k_max, "davies")
+    [k_calinski, time_calinski] = cluster_kmeans(data, k_min, k_max, "calinski")
 
     # Résultats 
     print("Le meilleur k avec Silhouette est : ", k_sil, "(running time=", time_sil, ")")
@@ -149,6 +149,6 @@ def plot_res_kmeans(file, k_min, k_max) :
     
     
 # Jeux de données pour lesquels l'algo ne fonctionne pas : banana, flame, circle, zelnik5, smile3, 3-spiral
-plot_res_kmeans("2d-4c", 0, 20)
-plot_res_kmeans("diamond9", 0, 20)
-plot_res_kmeans("hepta", 0, 20)
+plot_res_kmeans("2d-4c", 2, 20)
+plot_res_kmeans("diamond9", 2, 20)
+plot_res_kmeans("hepta", 2, 20)

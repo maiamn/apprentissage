@@ -26,7 +26,7 @@ def plot_graph_init(file) :
     plt.scatter(f0, f1, s=8)
     plt.title("Données initiales du jeu de données " + file)
     plt.show()
-    
+      
 
 #####################################################################################
 ###################################### K-MEANS ######################################
@@ -60,7 +60,7 @@ def cluster_kmeans(data, k_min, k_max, method) :
             if(abs(1-silhouette)<min_silhouette) : 
                 min_silhouette = abs(1-silhouette)
                 best_k_silhouette = k
-                best_time_silhouette = tps2 - tps1
+                best_time_silhouette = round((tps2 - tps1)*1000)
                 
         return [best_k_silhouette, best_time_silhouette]
         
@@ -85,7 +85,7 @@ def cluster_kmeans(data, k_min, k_max, method) :
             if(davies<min_davies) : 
                 min_davies = davies
                 best_k_davies = k 
-                best_time_davies = tps2 - tps1  
+                best_time_davies = round((tps2 - tps1)*1000)
                 
         return [best_k_davies, best_time_davies]
         
@@ -109,7 +109,7 @@ def cluster_kmeans(data, k_min, k_max, method) :
             if(calinski>max_calinski) : 
                 max_calinski = calinski
                 best_k_calinski = k
-                best_time_calinski = tps2 - tps1
+                best_time_calinski = round((tps2 - tps1)*1000)
                 
         return [best_k_calinski, best_time_calinski]
         

@@ -6,6 +6,7 @@ from sklearn import cluster
 from sklearn.metrics import davies_bouldin_score
 from sklearn.metrics import calinski_harabasz_score
 from sklearn.metrics import silhouette_score
+import pandas as pd
 
 
 #####################################################################################
@@ -15,6 +16,12 @@ def get_data_file(file) :
     path = './artificial/'
     databrut = arff.loadarff(open(path+file+'.arff', 'r'))
     data = [[x[0],x[1]] for x in databrut[0]]
+    return data
+
+def get_data_file_rapport(file) : 
+    path = './dataset-rapport/'
+    databrut = pd.read_csv(path+file+'.txt', sep=" ", encoding = "ISO-8859-1", skipinitialspace=True)
+    data = databrut.to_numpy()
     return data
 
 def plot_graph_init(file) : 
